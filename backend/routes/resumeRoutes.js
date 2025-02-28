@@ -34,7 +34,7 @@ router.post("/upload", upload.single("resume"), async (req, res) => {
         .json({ error: "Resume content extraction failed." });
     }
 
-    const feedback = await analyzeResume(resumeText);
+    // const feedback = await analyzeResume(resumeText);
 
     const newResume = new Resume({
       filename: req.file.filename,
@@ -42,12 +42,12 @@ router.post("/upload", upload.single("resume"), async (req, res) => {
       uploadedAt: new Date(),
     });
 
-    await newResume.save();
+    // await newResume.save();
 
     res.status(201).json({
       message: "Resume uploaded successfully!",
       resume: newResume,
-      feedback: feedback,
+      feedback: "sample feedback",
     });
   } catch (error) {
     res.status(500).json({ error: "Server error: " + error.message });

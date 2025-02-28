@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // Middleware
-const allowedOrigins = ["http://localhost:5173", "http://example.com"]; // Add more allowed origins as needed
+const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"]; // Add more allowed origins as needed
 
 const corsOptions = {
   origin: function (origin, callback) {
@@ -34,6 +34,17 @@ app.use(morgan("dev"));
 // Routes
 app.get("/api/test",(req,res)=>{
   console.log("Test api");
+  const newResume ={
+    filename: "sample name",
+    filePath: "sample path ",
+    uploadedAt: new Date(),
+  }
+
+  res.status(201).json({
+    message: "Resume uploaded successfully!",
+    resume: newResume,
+    feedback: "sample feedback",
+  });
   res.json({"hii":"Test api"});
 });
 
