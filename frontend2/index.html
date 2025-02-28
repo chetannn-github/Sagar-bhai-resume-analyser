@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Resume | Smart Resume Analyzer</title>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1>Upload Your Resume</h1>
+        <p>Upload your resume to get AI-powered feedback and analysis.</p>
+
+        <div class="upload-box" id="uploadBox">
+            <input type="file" id="resumeInput" accept=".pdf">
+            <label for="resumeInput" class="upload-label">
+                <span>Drag & Drop your resume here</span>
+                <br>or<br>
+                <button class="browse-btn">Browse File</button>
+            </label>
+            <p id="fileName"></p>
+        </div>
+
+        <button class="upload-btn" id="uploadBtn">Upload & Analyze</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: #555;
+}
+
+.upload-box {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.upload-box input {
+    display: none;
+}
+
+.upload-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.browse-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.upload-btn {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.upload-btn:hover, .browse-btn:hover {
+    background: #0056b3;
+}
+
+/* Animations */
+.container {
+    opacity: 0;
+    transform: translateY(30px);
+}

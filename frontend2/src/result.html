@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Result</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>📊 Resume Analysis Result</h1>
+
+        <div id="feedback">
+            <h2>🚀 Resume Score: <span id="resumeScore">Loading...</span></h2>
+            
+            <h3>✅ Strengths:</h3>
+            <ul id="strengthsList"></ul>
+            
+            <h3>⚠ Areas for Improvement:</h3>
+            <ul id="improvementsList"></ul>
+            
+            <h3>💡 Suggestions:</h3>
+            <ul id="suggestionsList"></ul>
+        </div>
+
+        <button onclick="goBack()">🔄 Upload Another Resume</button>
+    </div>
+
+    <script>
+        function displayResults() {
+            const result = JSON.parse(localStorage.getItem("resumeAnalysis"));
+
+            if (!result) {
+                document.getElementById("feedback").innerHTML = "<p>⚠ No results found. Try uploading again.</p>";
+                return;
+            }
+
+            document.getElementById("resumeScore").innerText = result.score ?? "N/A";
+
+            const strengthsList = document.getElementById("strengthsList");
+            const improvementsList = document.getElementById("improvementsList");
+            const suggestionsList = document.getElementById("suggestionsList");
+
+            strengthsList.innerHTML = result.strengths?.length 
+                ? result.strengths.map(str => `<li>${str}</li>`).join("")
+                : "<li>No strengths detected.</li>";
+
+            improvementsList.innerHTML = result.improvements?.length 
+                ? result.improvements.map(imp => `<li>${imp}</li>`).join("")
+                : "<li>No improvements suggested.</li>";
+
+            suggestionsList.innerHTML = result.suggestions?.length 
+                ? result.suggestions.map(sug => `<li>${sug}</li>`).join("")
+                : "<li>No suggestions available.</li>";
+        }
+
+        function goBack() {
+            localStorage.removeItem("resumeAnalysis");
+            window.location.href = "index.html";
+        }
+
+        window.onload = displayResults;
+    </script>
+
+</body>
+</html>
